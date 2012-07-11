@@ -1,7 +1,18 @@
 Depot::Application.routes.draw do
   resources :line_items
 
-  resources :carts
+  resources :carts do
+    member do
+      get 'double', :action => 'double_quantity'
+    end
+    
+    collection do
+      get 'updated_last_10_minutes'
+      get 'at_least_1_item'
+    end
+    
+    resources :line_items
+  end
 
   get "store/index"
 
