@@ -65,8 +65,6 @@ Depot::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-   config.action_mailer.delivery_method = :smtp
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "zimbra.levion.com",
@@ -77,4 +75,5 @@ Depot::Application.configure do
     authentication: :login,
     enable_starttls_auto: true
   }
+  config.action_mailer.raise_delivery_errors = true
 end
